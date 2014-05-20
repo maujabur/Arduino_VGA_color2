@@ -3,7 +3,7 @@
 // Code modified from http://www.gammon.com.au/forum/?id=11608
 
 //#include <avr/pgmspace.h>
-#include "image_BUTTON.h"
+#include "image_BARS.h"
 
 // a pixel every VDIV lines (2^n is valid)
 #define VDIV 8
