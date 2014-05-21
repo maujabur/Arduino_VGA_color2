@@ -25,11 +25,13 @@ void setup() {
     for (int column = 0; column<out_w; column++) {
       color pixel = img.pixels[column+line*out_w];
 
-      out_val(rrrggbbb(pixel), column);
+//      out_val(rrrggbbb(pixel), column);
+      out_val(bw(pixel), column);
 
       noStroke();
       //      stroke(0);
       fill(simulate(pixel));
+      fill(simulate_bw(pixel));
       rect((column+out_w*2)*mult, line*mult, mult, mult);
     }
     out_line_end();
