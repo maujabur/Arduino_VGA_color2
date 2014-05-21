@@ -96,6 +96,39 @@ int rrrggbbb (color pixel) {
   return result ;
 }
 
+color simulate_bw (color pixel) {
+  color result = 0;
+
+  result = bw(pixel)<<8; //turns into green
+
+  return result | 0xFF000000;
+}
+
+
+float rx,gx,bx;
+  
+int bw (color pixel) {
+/*  rx = 0.21;
+  gx = 0.71;
+  bx = 0.071;
+*/
+/*
+  rx = 0.5;
+  gx = 0.419;
+  bx = 0.081;
+*/  
+  rx = 0.299;
+  gx = 0.587;
+  bx = 0.114;
+
+  int r = (pixel >>16)&0xFF;
+  int g = (pixel >>8)&0xFF;
+  int b = (pixel >>0)&0xFF;
+  
+   int result = int(float(r)*rx+float(g)*gx+float(b)*bx);
+
+  return result ;
+}
 
 // file functions 
 PrintWriter output;
